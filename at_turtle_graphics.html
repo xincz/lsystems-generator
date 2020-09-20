@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NeZha</title>
+    <meta name="description" content="NeZhaJOJOJO的个人博客 - Python JavaScript 机器学习 数据分析 算法">
+    <meta name="Keywords" content="编程 Programming Python JavaScript 算法 Algorithm 机器学习 数据挖掘">
+
+    <!-- favicon -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/article.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.color.js"></script>
+    <script src="js/p5.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+    <!-- <script src="js/turtle/triTurtle.js"></script>
+    <script src="js/turtle/quadTurtle.js"></script> -->
+</head>
+
+<body>
+    <!-- header module -->
+    <header>
+        <div class="header">
+            <!-- logo module -->
+            <a href="index.html" class="logo">
+                <!-- <img src="" alt=""> -->
+                <h1>NeZha</h1>
+                <!-- <h3>博客小站</h3> -->
+            </a>
+            <!-- nav module -->
+            <nav>
+                <ul>
+                    <li><a href="#" class="clog">Catalogue</a></li>
+                    <li><a href="#" class="read">Reads</a></li>
+                    <li><a href="#" class="altm">Algorithm</a></li>
+                    <li><a href="#" class="webs">Webpages</a></li>
+                </ul>
+            </nav>
+            <!-- search module -->
+            <div class="search">
+                <input type="search" placeholder="搜索本站...">
+                <button></button>
+            </div>
+            <!-- language switch -->
+            <!-- <div class="lang">
+                <div class="lang-box">
+                    <em>语言</em>
+                </div>
+                <ul class="lang-select">
+                    <li class="cn"><a href="#">中文</a></li>
+                    <li class="en"><a href="#">Eng</a></li>
+                </ul>
+            </div> -->
+        </div>
+    </header>
+    <!-- article module -->
+    <article class="article">
+        <div class="title-img" style="background: url(images/turtle.jpg); background-size: 100%;">
+            <h1>
+                How to Draw Fancy Patterns using Turtle Graphics - An Iterative Approach
+            </h1>
+        </div>
+        <div class="content">
+            <h2><a id="What_is_turtle_graphics_1"></a>What is turtle graphics?</h2>
+            <p>Simply speaking, <strong>turtle graphics</strong> is a way to draw figures and shapes upon a Cartesian
+                plane.
+                Imagine there is a turtle on a canvas, the turtle can move forward, rotate left and right, upon
+                receiving
+                commands. When it moves the turtle will leave a trail on the canvas, and we can use the trail to draw
+                very
+                fancy pictures.<br>
+                The turtle needs three attributes: <strong>location, direction, pen.</strong> The pen also has some
+                attributes to control the color, width, and other styles of the stroke you draw.</p>
+            <h2><a id="Draw_shapes_iteratively_4"></a>Draw shapes iteratively</h2>
+            <p>Now, let's apply this idea and draw some shapes iteratively, using JavaScript.</p>
+            <p>We will be using the p5.js library, which supports various drawing and graphics options. We use p5.js to
+                visualize our turle drawing algorithm.</p>
+            <h3><a></a> </h3>
+            <p>In case that you are not familiar with p5.js, please refer to the <a href="https://p5js.org/">p5.js
+                    webpage</a>. If you are not familiar with JavaScript, please see <a
+                    href="https://www.w3schools.com/jsref/default.asp">JavaScript reference</a>.</p>
+            </p>
+            <h4><a id="An_iterative_triangle_8"></a>An iterative triangle</h4>
+            <p>The turtle starts at the center of the image, then it crawls on the edges of a small triangle. Each time
+                the
+                it finishes one edge of a triangle, it turns 120 degrees (actually a little more than that), and crawls
+                the
+                next edge, which is slightly longer that the previous one. Thus, for each iteration the size of the
+                triangle
+                grows, and since there is a little offfset to the angle turned, we can see an rotating effect of the
+                triangle pattern.</p>
+            <!-- <div class="code1" style="">
+                <link rel="stylesheet" href="https://stackedit.io/style.css" />
+
+                <pre><code class="prism language-javascript"><span class="token keyword">var</span> len<span class="token punctuation">;</span>
+                    <span class="token keyword">var</span> counter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                    <span class="token keyword">var</span> colorCount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                    
+                    <span class="token keyword">function</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token function">createCanvas</span><span class="token punctuation">(</span><span class="token number">550</span><span class="token punctuation">,</span> <span class="token number">550</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token function">background</span><span class="token punctuation">(</span><span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        len <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+                        <span class="token function">translate</span><span class="token punctuation">(</span>width <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> height <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token function">setInterval</span><span class="token punctuation">(</span>dirChange<span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    
+                    <span class="token keyword">function</span> <span class="token function">dirChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>counter <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            len <span class="token operator">+=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+                            counter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+                        <span class="token function">colorChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token function">line</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span>len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token function">translate</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span>len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token function">rotate</span><span class="token punctuation">(</span><span class="token function">radians</span><span class="token punctuation">(</span><span class="token number">121.3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        counter<span class="token operator">++</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    
+                    <span class="token keyword">function</span> <span class="token function">colorChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>colorCount<span class="token operator">%</span><span class="token number">3</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            <span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">221</span><span class="token punctuation">,</span> <span class="token number">55</span><span class="token punctuation">,</span> <span class="token number">144</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>colorCount<span class="token operator">%</span><span class="token number">3</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            <span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">144</span><span class="token punctuation">,</span> <span class="token number">221</span><span class="token punctuation">,</span> <span class="token number">55</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>colorCount<span class="token operator">%</span><span class="token number">3</span> <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            <span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">55</span><span class="token punctuation">,</span> <span class="token number">144</span><span class="token punctuation">,</span> <span class="token number">221</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                        colorCount<span class="token operator">++</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    </code></pre>
+            </div> -->
+            <button class="button" id="tri">Launch!</button>
+            <div id="tri-turtle" class="sketch-box"></div>
+            <h4>An iterative square</h4>
+            <button class="button" id="quad">Launch!</button>
+            <div id="quad-turtle" class="sketch-box"></div>
+            <h4>An iterative hexagon</h4>
+            <button class="button" id="hexa">Launch!</button>
+            <div id="hexa-turtle" class="sketch-box"></div>
+        </div>
+    </article>
+
+    <!-- gotoTop module -->
+    <div class="goto-top">
+        
+    </div>
+    <!-- footer module -->
+    <footer class="footer">
+        <span>Copyright © 2020 NeZhaJOJOJO All Rights Reserved</span>
+    </footer>
+
+    <script src="js/turtle/triTurtle.js"></script>
+    <script src="js/turtle/quadTurtle.js"></script>
+    <script src="js/turtle/hexaTurtle.js"></script>
+</body>
+
+</html>

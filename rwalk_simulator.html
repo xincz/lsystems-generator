@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NeZha - Random Walk Simulator</title>
+    <meta name="description" content="NeZhaJOJOJO的个人博客 - Python JavaScript 机器学习 数据分析 算法">
+    <meta name="Keywords" content="编程 Programming Python JavaScript 算法 Algorithm 机器学习 数据挖掘">
+
+    <!-- favicon -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/article.css">
+    <link rel="stylesheet" href="css/rwalk.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.color.js"></script>
+    <script src="js/plotly-latest.min.js"></script>
+    <script src="js/p5.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <!-- header module -->
+    <header>
+        <div class="header">
+            <!-- logo module -->
+            <a href="index.html" class="logo">
+                <!-- <img src="" alt=""> -->
+                <h1>NeZha</h1>
+                <!-- <h3>博客小站</h3> -->
+            </a>
+            <!-- nav module -->
+            <nav>
+                <ul>
+                    <li><a href="#" class="clog">Catalogue</a></li>
+                    <li><a href="#" class="read">Reads</a></li>
+                    <li><a href="#" class="altm">Algorithm</a></li>
+                    <li><a href="#" class="webs">Webpages</a></li>
+                </ul>
+            </nav>
+            <!-- search module -->
+            <div class="search">
+                <input type="search" placeholder="搜索本站...">
+                <button></button>
+            </div>
+            <!-- language switch -->
+            <!-- <div class="lang">
+                <div class="lang-box">
+                    <em>语言</em>
+                </div>
+                <ul class="lang-select">
+                    <li class="cn"><a href="#">中文</a></li>
+                    <li class="en"><a href="#">Eng</a></li>
+                </ul>
+            </div> -->
+        </div>
+    </header>
+    <!-- article module -->
+    <article class="rwalk-simulator">
+        <!-- rwalk info panel -->
+        <div class="rwalk-panel">
+            <!-- rwalk title -->
+            <div class="rw-title">
+                <h1>Random</h1>
+                <h1>Walk</h1>
+            </div>
+            <!-- rwalk panel content -->
+            <div class="rw-con">
+                <!-- rwalk time chart -->
+                <div id="rw-timeChart">
+                </div>
+                <!-- rwalk freq chart -->
+                <div id="rwalk-freq">
+                </div>
+            </div>
+        </div>
+        <!-- rwalk main panel -->
+        <div class="rwalk-main">
+            <div id="rwalk-sim"></div>
+        </div>
+        <!-- rwalk data panel -->
+        <div id="rw-distChart">
+        </div>
+
+    </article>
+
+    <!-- gotoTop module -->
+    <div class="goto-top">
+        
+    </div>
+    <!-- footer module -->
+    <footer class="footer">
+        <span>Copyright © 2020 NeZhaJOJOJO All Rights Reserved</span>
+    </footer>
+
+    <script src="js/motionBG.js"></script>
+    <script src="js/rwalk/rwalk-simulator.js"></script>
+</body>
+
+</html>

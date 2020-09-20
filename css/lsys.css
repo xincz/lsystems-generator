@@ -1,0 +1,303 @@
+.lsys-generator {
+    position: relative;
+    overflow-x: scroll;
+    top: 60px;
+    height: 670px;
+    width: 1400px;
+    margin: 15px auto;
+    background: transparent;
+    /* border: 1px solid crimson; */
+    border-radius: 15px;
+}
+
+#examples {
+    position: absolute;
+    overflow-y: scroll;
+    left: 5px;
+    top: 5px;
+    width: 400px;
+    height: 604px;
+    border-radius: 5px;
+}
+
+#examples ul li {
+    display: inline-block;
+    margin: 2px;
+    width: 120px;
+    height: 120px;
+    background-color: #6A5ACD;
+    border-radius: 5px;
+}
+
+#examples ul li:hover {
+    box-shadow: 1px;
+    box-shadow: 0 0 10px #777;
+    cursor: pointer;
+}
+
+#examples #ex1 {
+    background: url(../images/dragon.png);
+    background-size: cover;
+}
+
+#examples #ex2 {
+    background: url(../images/pentagon.png);
+    background-size: cover;
+}
+
+#examples #ex3 {
+    background: url(../images/octal.png);
+    background-size: cover;
+}
+
+#examples #ex4 {
+    background: url(../images/hex_angle.png);
+    background-size: cover;
+}
+
+#examples #ex5 {
+    background: url(../images/cross.png);
+    background-size: cover;
+}
+
+#examples #ex6 {
+    background: url(../images/rings.png);
+    background-size: cover;
+}
+
+#examples #ex7 {
+    background: url(../images/hex_gosper.png);
+    background-size: cover;
+}
+
+#examples #ex8 {
+    background: url(../images/board.png);
+    background-size: cover;
+}
+
+#examples #ex9 {
+    background: url(../images/triAwesome.png);
+    background-size: cover;
+}
+
+#examples #exA {
+    background: url(../images/rice.png);
+    background-size: cover;
+}
+
+#examples #exB {
+    background: url(../images/simple_tree4.png);
+    background-size: cover;
+}
+
+#examples #exC {
+    background: url(../images/simple_tree5.png);
+    background-size: cover;
+}
+
+#examples #exD {
+    background: url(../images/simple_tree1.png);
+    background-size: cover;
+}
+
+#examples #exE {
+    background: url(../images/simple_tree2.png);
+    background-size: cover;
+}
+
+#examples #exF {
+    background: url(../images/simple_tree3.png);
+    background-size: cover;
+}
+
+.lsys-main {
+    position: absolute;
+    top: 5px;
+    left: 400px;
+    width: 610px;
+    background-color: #282828;
+    border-radius: 5px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#lsys-gen {
+    /* position: absolute; */
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: #282828;
+}
+
+#pos-btns {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+#pos-btns li {
+    position: absolute;
+    background-color: transparent;
+    width: 14px;
+    height: 14px;
+}
+
+#pos-btns li:hover {
+    background-color: #6A5ACD;
+    cursor: pointer;
+}
+
+#top-left {
+    position: absolute;
+    top: -7px;
+    left: -7px;
+}
+
+#top-center {
+    position: absolute;
+    top: -7px;
+    left: calc(300px - 7px);
+}
+
+#top-right {
+    position: absolute;
+    top: -7px;
+    left: calc(600px - 7px);
+}
+
+#center-left {
+    position: absolute;
+    top: calc(300px - 7px);
+    left: -7px;
+}
+
+#center-center {
+    position: absolute;
+    top: calc(300px - 7px);
+    left: calc(300px - 7px);
+}
+
+#center-right {
+    position: absolute;
+    top: calc(300px - 7px);
+    left: calc(600px - 7px);
+}
+
+#bottom-left {
+    position: absolute;
+    top: calc(600px - 7px);
+    left: -7px;
+}
+
+#bottom-center {
+    position: absolute;
+    top: calc(600px - 7px);
+    left: calc(300px - 7px);
+}
+
+#bottom-right {
+    position: absolute;
+    top: calc(600px - 7px);
+    left: calc(600px - 7px);
+}
+
+
+.lsys-table {
+    position: absolute;
+    top: 5px;
+    left: 1030px;
+    width: 325px;
+    height: 604px;
+    background-color: #282828;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.lsys-title {
+    height: 60px;
+    background-color: #6A5ACD;
+    background-image: linear-gradient(40deg, #FF6666, #6A5ACD 70%);
+    font-size: 18px;
+    line-height: 60px;
+    text-align: center;
+    color: white;
+}
+
+.lsys-title h1 {
+    text-shadow: 0 0 4px #fff;
+    font-weight: 900;
+}
+
+.lsys-table table {
+    position: absolute;
+    top: 78px;
+    left: 22px;
+    border: 0;
+    border-collapse: collapse;
+    width: 250px;
+}
+
+td {
+    padding: 5px;
+}
+
+tr {
+    height: 28px;
+    vertical-align: middle;
+    font-size: 20px;
+    color: white;
+}
+
+tr input {
+    border: 0;
+    border-radius: 3px;
+    line-height: 18px;
+    background-color: #282828;
+    color: white;
+}
+
+#auto-length {
+    margin-left: 6px;
+    padding: 0 3px;
+    border-radius: 4px;
+}
+
+#auto-length:hover {
+    cursor: pointer;
+}
+
+.auto-length-select {
+    background-color: #6A5ACD;
+}
+
+#length,
+#angle,
+#axiom,
+#iterations {
+    width: 70px;
+    border-bottom: 1px solid #fff;
+    font-size: 20px;
+}
+
+#rule1,
+#rule2,
+#rule3,
+#rule4,
+#rule5 {
+    width: 160px;
+    border-bottom: 1px solid #fff;
+    font-size: 20px;
+}
+
+input[type="button"] {
+    margin-top: 5px;
+    padding: 7px;
+    background-color: #6A5ACD;
+    border-radius: 3px;
+    font-size: 20px;
+    color: #fff;
+}
+
+input[type="button"]:hover {
+    cursor: pointer;
+}

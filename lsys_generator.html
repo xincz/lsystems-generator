@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NeZha - L-Systems Generator</title>
+    <meta name="description" content="NeZhaJOJOJO的个人博客 - Python JavaScript 机器学习 数据分析 算法">
+    <meta name="Keywords" content="编程 Programming Python JavaScript 算法 Algorithm 机器学习 数据挖掘">
+
+    <!-- favicon -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/article.css">
+    <link rel="stylesheet" href="css/lsys.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.color.js"></script>
+    <script src="js/p5.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <!-- header module -->
+    <header>
+        <div class="header">
+            <!-- logo module -->
+            <a href="index.html" class="logo">
+                <!-- <img src="" alt=""> -->
+                <h1>NeZha</h1>
+                <!-- <h3>博客小站</h3> -->
+            </a>
+            <!-- nav module -->
+            <nav>
+                <ul>
+                    <li><a href="#" class="clog">Catalogue</a></li>
+                    <li><a href="#" class="read">Reads</a></li>
+                    <li><a href="#" class="altm">Algorithm</a></li>
+                    <li><a href="#" class="webs">Webpages</a></li>
+                </ul>
+            </nav>
+            <!-- search module -->
+            <div class="search">
+                <input type="search" placeholder="搜索本站...">
+                <button></button>
+            </div>
+            <!-- language switch -->
+            <!-- <div class="lang">
+                <div class="lang-box">
+                    <em>语言</em>
+                </div>
+                <ul class="lang-select">
+                    <li class="cn"><a href="#">中文</a></li>
+                    <li class="en"><a href="#">Eng</a></li>
+                </ul>
+            </div> -->
+        </div>
+    </header>
+    <!-- article module -->
+    <!-- <article class="article">
+        <div class="title-img" style="background: url(images/forest.jpg); background-size: 100%;">
+            <h1>
+                L-Systems Generator
+            </h1>
+        </div>
+        <div class="content">
+            <table border="0">
+                <tbody>
+                    <tr>
+                        <td><span>Length:</span></td>
+                        <td>
+                            <input type="text" id="length" value="120">
+                            <span id="auto-length" class="auto-length-select">auto</span>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td><span>Angle:</span></td>
+                        <td>
+                            <input type="text" id="angle" value="30">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Axiom:</span></td>
+                        <td>
+                            <input type="text" id="axiom" value="X">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Iterations:</span></td>
+                        <td>
+                            <input type="text" id="iterations" value="7">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Rule1:</span></td>
+                        <td>
+                            <input type="text" id="rule1" value="F=FF">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Rule2:</span></td>
+                        <td>
+                            <input type="text" id="rule2" value="X=F[+X]FF[-X][-F]+FX">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Rule3:</span></td>
+                        <td>
+                            <input type="text" id="rule3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="Launch!" id="launch"></td>
+                        <td><input type="button" value="Reset" id="reset"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="lsys-gen" class="sketch-box">
+                <ul id="pos-btns">
+                    <li class="pos-btn" id="top-left"></li>
+                    <li class="pos-btn" id="top-center"></li>
+                    <li class="pos-btn" id="top-right"></li>
+                    <li class="pos-btn" id="center-left"></li>
+                    <li class="pos-btn" id="center-center"></li>
+                    <li class="pos-btn" id="center-right"></li>
+                    <li class="pos-btn" id="bottom-left"></li>
+                    <li class="pos-btn" id="bottom-center"></li>
+                    <li class="pos-btn" id="bottom-right"></li>
+                </ul>
+            </div>
+            <div id="examples">
+                <ul>
+                    <li class="lsys-ex" id="ex1"></li>
+                    <li class="lsys-ex" id="ex2"></li>
+                    <li class="lsys-ex" id="ex3"></li>
+                    <li class="lsys-ex" id="ex4"></li>
+                    <li class="lsys-ex" id="ex5"></li>
+                    <li class="lsys-ex" id="ex6"></li>
+                    <li class="lsys-ex" id="ex7"></li>
+                    <li class="lsys-ex" id="ex8"></li>
+                    <li class="lsys-ex" id="ex9"></li>
+                    <li class="lsys-ex" id="exA"></li>
+                    <li class="lsys-ex" id="exB"></li>
+                    <li class="lsys-ex" id="exC"></li>
+                </ul>
+            </div>
+        </div>
+    </article> -->
+
+    <article class="lsys-generator">
+        <div id="examples">
+            <ul>
+                <li class="lsys-ex" id="ex1"></li>
+                <li class="lsys-ex" id="ex2"></li>
+                <li class="lsys-ex" id="ex3"></li>
+                <li class="lsys-ex" id="ex4"></li>
+                <li class="lsys-ex" id="ex5"></li>
+                <li class="lsys-ex" id="ex6"></li>
+                <li class="lsys-ex" id="ex7"></li>
+                <li class="lsys-ex" id="ex8"></li>
+                <li class="lsys-ex" id="ex9"></li>
+                <li class="lsys-ex" id="exA"></li>
+                <li class="lsys-ex" id="exB"></li>
+                <li class="lsys-ex" id="exC"></li>
+                <li class="lsys-ex" id="exD"></li>
+                <li class="lsys-ex" id="exE"></li>
+                <li class="lsys-ex" id="exF"></li>
+            </ul>
+        </div>
+        <div class="lsys-main">
+            <div id="lsys-gen">
+                <ul id="pos-btns">
+                    <li class="pos-btn" id="top-left"></li>
+                    <li class="pos-btn" id="top-center"></li>
+                    <li class="pos-btn" id="top-right"></li>
+                    <li class="pos-btn" id="center-left"></li>
+                    <li class="pos-btn" id="center-center"></li>
+                    <li class="pos-btn" id="center-right"></li>
+                    <li class="pos-btn" id="bottom-left"></li>
+                    <li class="pos-btn" id="bottom-center"></li>
+                    <li class="pos-btn" id="bottom-right"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="lsys-table">
+            <div class="lsys-title">
+                <h1>L-Systems Generator</h1>
+            </div>
+            <table border="0">
+                <tbody>
+                    <tr>
+                        <td><span>Length:</span></td>
+                        <td>
+                            <input type="text" id="length" value="120">
+                            <span id="auto-length" class="auto-length-select">auto</span>
+                        </td>
+    
+                    </tr>
+                    <tr>
+                        <td><span>Angle:</span></td>
+                        <td>
+                            <input type="text" id="angle" value="30">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Axiom:</span></td>
+                        <td>
+                            <input type="text" id="axiom" value="X">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Iterations:</span></td>
+                        <td>
+                            <input type="text" id="iterations" value="7">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Rule1:</span></td>
+                        <td>
+                            <input type="text" id="rule1" value="F=FF">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Rule2:</span></td>
+                        <td>
+                            <input type="text" id="rule2" value="X=F[+X]FF[-X][-F]+FX">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Rule3:</span></td>
+                        <td>
+                            <input type="text" id="rule3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Rule4:</span></td>
+                        <td>
+                            <input type="text" id="rule4">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Rule5:</span></td>
+                        <td>
+                            <input type="text" id="rule5">
+                        </td>
+                    </tr>
+                    <tr id="btn-row">
+                        <td><input type="button" value="Launch!" id="launch"></td>
+                        <td><input type="button" value="Reset" id="reset"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </article>
+
+    <!-- gotoTop module -->
+    <div class="goto-top">
+        
+    </div>
+    <!-- footer module -->
+    <footer class="footer">
+        <span>Copyright © 2020 NeZhaJOJOJO All Rights Reserved</span>
+    </footer>
+
+    <script src="js/motionBG.js"></script>
+    <script src="js/lsystem/lsys-generator.js"></script>
+    
+</body>
+
+</html>

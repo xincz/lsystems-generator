@@ -1,0 +1,255 @@
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?i5u840');
+    src: url('../fonts/icomoon.eot?i5u840#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?i5u840') format('truetype'),
+        url('../fonts/icomoon.woff?i5u840') format('woff'),
+        url('../fonts/icomoon.svg?i5u840#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+/* 隐藏滚动条 */
+/* Chrome */
+body::-webkit-scrollbar {
+    display: none;
+}
+/* IE/Edge */
+body {
+    -ms-overflow-style: none;
+}
+/* ========== */
+
+.w {
+    width: 1000px;
+    height: 2000px;
+    margin: 0 auto;
+    background-color: pink;
+}
+
+.violet {
+    color: #6A5ACD;
+}
+
+body {
+    background-color: #f5f5f5;
+    /* background-color: #222; */
+    background-image: linear-gradient(200deg, #FFCCCC, #CCCCFF);
+    font-family: cursive;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    box-shadow: 0 0 10px #555;
+}
+
+.header {
+    position: relative;
+    height: 50px;
+    background-color: #6a5acd;
+    /* background-image: linear-gradient(to bottom, cyan, transparent); */
+    opacity: 0.9;
+    backdrop-filter: blur(10px) brightness(110%);
+}
+
+.header .logo {
+    position: absolute;
+    display: block;
+    left: 90px;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    text-shadow: 0 0 5px #fff;
+    color: aliceblue;
+}
+
+.header nav ul {
+    position: absolute;
+    left: 240px;
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+}
+
+.header nav ul li {
+    float: left;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.header nav ul li a {
+    display: block;
+    padding: 0 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 18px;
+    color: white;
+}
+
+/* .header nav ul li a:hover {
+    background-color: #fff;
+    color: #6A5ACD;
+} */
+.header nav ul li a:before {
+    font-family: 'icomoon';
+    padding-right: 5px;
+    vertical-align: auto;
+}
+
+.clog:before {
+    content: '';
+}
+
+.read:before {
+    content: '';
+}
+
+.altm:before {
+    content: '';
+}
+
+.webs:before {
+    content: '';
+}
+
+.header .search input {
+    position: absolute;
+    display: none;
+    right: 168px;
+    width: 170px;
+    height: 30px;
+    margin: 10px 0;
+    padding: 0 10px;
+    background-color: #483D8B;
+    border-radius: 7px;
+    color: #fff;
+}
+
+.header .search button {
+    position: absolute;
+    right: 162px;
+    width: 30px;
+    height: 30px;
+    margin: 10px 0;
+    background-color: #483D8B;
+    border-radius: 7px;
+    color: #fff;
+    font-family: 'icomoon';
+}
+
+.header .search input::placeholder {
+    color: #fff;
+}
+
+
+.header .lang-box {
+    position: absolute;
+    right: 170px;
+    top: 10px;
+    width: 75px;
+    height: 30px;
+    border-radius: 15px;
+    color: white;
+    line-height: 30px;
+    text-align: center;
+    z-index: 2;
+}
+
+.selected {
+    cursor: pointer;
+    background-color: #E6E6FA;
+    color: #6A5ACD;
+}
+
+.header .lang-box em {
+    font-size: 16px;
+}
+
+.header .lang-select {
+    display: none;
+    position: absolute;
+    right: 170px;
+    top: 25px;
+    padding-top: 15px;
+    background-color: #E6E6FA;
+    border-radius: 0 0 15px 15px;
+}
+
+.header .lang-select li {
+    width: 75px;
+    height: 30px;
+    border-radius: 15px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.header .lang-select li a {
+    color: #6A5ACD;
+}
+
+.goto-top {
+    position: fixed;
+    display: none;
+    left: 30px;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #6A5ACD;
+    text-align: center;
+    color: #fff;
+    line-height: 50px;
+    font-size: 24px;
+    font-family: 'icomoon';
+    transition: width .5s, height .5s, line-height .5s, font-size .5s;
+    box-shadow: 0 0 6px #555;
+}
+
+.goto-top:hover {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 28.8px;
+    cursor: pointer;
+}
+
+.button {
+    margin: 5px 10px;
+    height: 30px;
+    width: 60px;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #6A5ACD;
+    color: #fff;
+}
+
+.footer {
+    /* position: absolute; */
+    /* display: none; */
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    padding-top: 60px;
+    padding-bottom: 30px;
+    /* background-color: pink; */
+    z-index: 3;
+    text-align: center;
+    line-height: 100%;
+    clear: both;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background-color: transparent;
+}

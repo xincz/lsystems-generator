@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NeZha</title>
+    <meta name="description" content="NeZhaJOJOJO的个人博客 - Python JavaScript 机器学习 数据分析 算法">
+    <meta name="Keywords" content="编程 Programming Python JavaScript 算法 Algorithm 机器学习 数据挖掘">
+
+    <!-- favicon -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/article.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.color.js"></script>
+    <script src="js/p5.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <!-- header module -->
+    <header>
+        <div class="header">
+            <!-- logo module -->
+            <a href="index.html" class="logo">
+                <!-- <img src="" alt=""> -->
+                <h1>NeZha</h1>
+                <!-- <h3>博客小站</h3> -->
+            </a>
+            <!-- nav module -->
+            <nav>
+                <ul>
+                    <li><a href="#" class="clog">Catalogue</a></li>
+                    <li><a href="#" class="read">Reads</a></li>
+                    <li><a href="#" class="altm">Algorithm</a></li>
+                    <li><a href="#" class="webs">Webpages</a></li>
+                </ul>
+            </nav>
+            <!-- search module -->
+            <div class="search">
+                <input type="search" placeholder="搜索本站...">
+                <button></button>
+            </div>
+            <!-- language switch -->
+            <!-- <div class="lang">
+                <div class="lang-box">
+                    <em>语言</em>
+                </div>
+                <ul class="lang-select">
+                    <li class="cn"><a href="#">中文</a></li>
+                    <li class="en"><a href="#">Eng</a></li>
+                </ul>
+            </div> -->
+        </div>
+    </header>
+    <!-- article module -->
+    <article class="article">
+        <div class="title-img" style="background: url(images/forest.jpg); background-size: 100%;">
+            <h1>
+                L System - Generate Trees using Recursion
+            </h1>
+        </div>
+        <div class="content">
+            <h2><a id="_0"></a>植物与分形</h2>
+            <p>在大自然中，许多植物的生长方式是迭代 (recursive) 并且自相似 (self-similar)
+                的。从一株蕨类植物中取其一片叶子，如果将这片叶子放大，我们可以发现这个叶子的结构和形状跟其母体是非常相近的。这种性质在数学上称之为“分形
+                (fractal)”，也即图案的部分与整体几乎完全一致。具有这种性质的植物，我们可以方便地使用数学上的迭代法 (recursion) 来生成植物的模型。<br>
+                接下来，让我们来了解一种迭代生成树状图形的方法: L-system.</p>
+            <h2><a id="_Lsystem_4"></a>什么是 L-system?</h2>
+            <p>1868年，匈牙利生物与植物学家 Aristid Lindenmayer 发明了一种描述植物结构生长方式的算法：Lindenmayer-system. L-system 是一种字符串重写系统 (string
+                rewriting system)，我们首先需要有一个初始字符串：</p>
+            <ul>
+                <li class="rule">Axiom: A</li>
+            </ul>
+            <p>还要定义一些重写法则：</p>
+            <ul>
+                <li class="rule">Rule1: A =&gt; B</li>
+                <li class="rule">Rule2: B =&gt; AB</li>
+            </ul>
+            <p>接下来我们可以利用自己定义的重写规则，将初始字符串重写，以此得到一个新的字符串。比如，从 A 出发经过一次重写，我们可以得到 B，再一次重写可以得到 AB，接下来可以得到 BAB, ABBAB,
+                BABABBAB, …
+                利用这个不断迭代生成的字符串，输入一个对应的绘图算法来处理，我们可以得到非常复杂的树状图案。</p>
+            <p>为了方便将字符串转化为图案，我们使用以下的字符表示：</p>
+            <ul>
+                <li class="rule">F：前进画线</li>
+                <li class="rule">+：顺时针旋转某个角度</li>
+                <li class="rule">-：逆时针旋转某个角度</li>
+            </ul>
+            <p>为了得到分岔的树状图案，我们在这些字符的基础上，再添加两个字符：</p>
+            <ul>
+                <li class="rule">[ : 保存当前位置（开启分支）</li>
+                <li class="rule">] : 回到上次保存的位置（结束分支）</li>
+            </ul>
+            <p>现在让我们来感受下这些简单法则的强大力量吧。</p>
+            <h2><a id="_29"></a>雪花图案</h2>
+            <p><strong>Axiom</strong>: F++F++F<br>
+                <strong>Angle</strong>: Pi/3<br>
+                <strong>Rule1</strong>: F =&gt; F-F++F-F</p>
+            <button id="gen-btn1" class="button">生成图案</button>
+            <button id="clr-btn1" class="button">恢复</button>
+            <div id="lsys1" class="sketch-box"></div>
+            <h2><a id="_36"></a>树状图案</h2>
+            <p><strong>Axiom</strong>: X<br>
+                <strong>Angle</strong>: 35<br>
+                <strong>Rule1</strong>: F =&gt; FF<br>
+                <strong>Rule2</strong>: X =&gt; F[+X]FF[-X][-F]+FX</p>
+            <button id="gen-btn2" class="button">生成图案</button>
+            <button id="clr-btn2" class="button">恢复</button>
+            <div id="lsys2" class="sketch-box"></div>
+            <h2><a href="lsys_generator.html">L-System 生成器</a></h2>
+        </div>
+    </article>
+
+    <!-- gotoTop module -->
+    <div class="goto-top">
+        
+    </div>
+    <!-- footer module -->
+    <footer class="footer">
+        <span>Copyright © 2020 NeZhaJOJOJO All Rights Reserved</span>
+    </footer>
+
+    <script src="js/lsystem/lsys-flake.js"></script>
+    <script src="js/lsystem/lsys-tree.js"></script>
+</body>
+
+</html>

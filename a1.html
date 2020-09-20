@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.color.js"></script>
+    <script src="js/plotly-latest.min.js"></script>
+    <script src="js/p5.min.js"></script>
+    <!-- <script src="js/common.js"></script> -->
+    <!-- <script src="js/index.js"></script> -->
+</head>
+<body>
+    <div id="rw-timeChart"></div>
+
+    <script>
+        function getData() {
+            return Math.random();
+        }
+
+        var chart = document.getElementById("rw-timeChart");
+        Plotly.plot(chart, [{
+            y: [getData()],
+            type: "line"
+        }]);
+
+        var count = 0;
+
+        setInterval(() => {
+            Plotly.extendTraces(chart, {y: [[getData()]]}, [0]);
+            count++;
+            if (count>100) {
+                Plotly.relayout(chart, {
+                    xaxis: {
+                        range: [count-100, count]
+                    }
+                });
+            }
+        }, 20);
+    </script>
+</body>
+</html>
